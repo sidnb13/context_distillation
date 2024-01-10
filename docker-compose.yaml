@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  prompt_inject2:
+    build: .
+    image: prompt_inject2
+    volumes:
+     - "./:/app/prompt_inject2/"
+    working_dir: /app/prompt_inject2/
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
